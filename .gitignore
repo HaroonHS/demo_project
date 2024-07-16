@@ -1,0 +1,8 @@
+.venv
+.vscode
+data.db
+*.pyc
+__pycache__
+.DS_Store
+uploads
+app_bk.py
