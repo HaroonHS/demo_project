@@ -37,9 +37,14 @@ def create_app(db_url=None):
     app.config["MAIL_SERVER"] = "smtp.googlemail.com"
     app.config["MAIL_PORT"] = 587
     app.config["MAIL_USERNAME"] = "haroon.ssuet@gmail.com"
-    app.config["MAIL_PASSWORD"] = ""
+    app.config["MAIL_PASSWORD"] = "hljcadajaepkhqgu"
     app.config["MAIL_USE_TLS"] = True
     app.config["MAIL_USE_SSL"] = False
+
+    # app.config['CLIENT_ID'] ="298406014882-9r7k2ck97nb84fvief0stqvscska0j4b.apps.googleusercontent.com"
+    # app.config["CLIENT_SECRET"] = "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"
+    # app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=1)
+    # app.config["JWT_REFRESH_TOKEN_EXPIRES"] = timedelta(days=30)
    
     mail = Mail(app)
     # mail.init_app(app)
@@ -57,8 +62,8 @@ def create_app(db_url=None):
 
     google = oath.register(
             name = 'google',
-            client_id = '',          
-            client_secret='',
+            client_id = '465573586895-mfs5iv45fachosbr5osd54cb00j6982f.apps.googleusercontent.com',          
+            client_secret='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',
             access_token_url ='https://accounts.google.com/o/oauth2/token',
             access_token_params = None,
             authorize_url ='https://accounts.google.com/o/oauth2/auth',
@@ -132,8 +137,8 @@ def create_app(db_url=None):
     def sendemail():
           msg = Message(
               subject = "Hi its test email",
-              recipients= [],
-              sender= ""
+              recipients= ["haroon.ssuet@gmail.com","haroonsaeed.ssuet@gmail.com"],
+              sender= "haroon.ssuet@gmail.com"
               
           )
           msg.body="hello every one."
@@ -158,14 +163,14 @@ def create_app(db_url=None):
         resp.raise_for_status()
         user_info = resp.json()
         # do something with the token and profile
-       # session['email'] = user_info['email']
+        session['email'] = user_info['email']
         return jsonify(user_info)
         return redirect('/')
-    # @app.route("/")
-    # def hello_world():
-    #     #print(session['email'])
-    #     email = session['email'] 
-    #     return f'hello, {email}'
+    @app.route("/")
+    def hello_world():
+        #print(session['email'])
+        email = session['email'] 
+        return f'hello, {email}'
     
 
     @app.route("/logoutt")
