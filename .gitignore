@@ -1,6 +1,5 @@
 .venv
 .vscode
-data.db
 *.pyc
 __pycache__
 .DS_Store
@@ -8,3 +7,4 @@ uploads
 Dockerfile_bk
 test
 requirementssss.txt
+app-bk.py
