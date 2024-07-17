@@ -161,11 +161,11 @@ def create_app(db_url=None):
         session['email'] = user_info['email']
         return jsonify(user_info)
         return redirect('/')
-    @app.route("/")
-    def hello_world():
-        #print(session['email'])
-        email = session['email'] 
-        return f'hello, {email}'
+    # @app.route("/")
+    # def hello_world():
+    #     #print(session['email'])
+    #     email = session['email'] 
+    #     return f'hello, {email}'
     
 
     @app.route("/logoutt")
