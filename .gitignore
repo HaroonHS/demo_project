@@ -5,6 +5,5 @@ data.db
 __pycache__
 .DS_Store
 uploads
-app-bk.py
 Dockerfile_bk
 test
